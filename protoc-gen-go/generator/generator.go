@@ -2062,6 +2062,12 @@ func (g *Generator) generateMessage(message *Descriptor) {
 	// Field getters
 	var getters []getterSymbol
 	for _, field := range message.Field {
+
+		// TODO Add option to proto source for disable getters in generated go sources
+		if true {
+			continue
+		}
+
 		oneof := field.OneofIndex != nil
 
 		fname := fieldNames[field]
